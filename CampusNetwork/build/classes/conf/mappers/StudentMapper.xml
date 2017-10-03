@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper.java namespace -->
+<mapper namespace="com.campusnetwork.dao.StudentMapper">
+
+
+	<resultMap id="importantDates" type="com.campusnetwork.models.CoursePlan">
+		<result property="courseId" column="CourseId" />
+		<result property="assignmentName" column="Assignment" />
+		<result property="assignmentDeadline" column="AssignmentDeadline" />
+	</resultMap>
+	<resultMap id="upcomingAssessments" type="com.campusnetwork.models.CoursePlan">
+		<result property="courseId" column="CourseId" />
+		<result property="topicName" column="TopicName" />
+		<result property="topicDate" column="TopicDate" />
+	</resultMap>
+		<resultMap id="enrolledCourses" type="com.campusnetwork.models.Course">
+		<result property="courseId" column="CourseId" />
+		<result property="courseName" column="CourseName" />
+		<result property="startDate" column="StartDate" />
+		<result property="endDate" column="EndDate" />
+		<result property="credits" column="Credits" />
+	</resultMap>
+
+	<resultMap id="courseSchedule" type="com.campusnetwork.models.CoursePlan">
+		<result property="topicName" column="TopicName" />
+		<result property="topicDate" column="TopicDate" />
+		<result property="assignmentName" column="Assignment" />
+		<result property="assignmentDeadline" column="AssignmentDeadline" />
+	</resultMap>
+		
+	<select id="getImportantDates" resultMap="importantDates">
+		SELECT CourseId,Assignment,DATE_FORMAT(AssignmentDeadline, "%m/%d/%Y") as AssignmentDeadline  FROM tbl_CoursePlan WHERE
+		Assignment!= '' AND AssignmentDeadline &gt;= curdate()
+		AND AssignmentDeadline &lt; date_add(curdate(), interval 14 day) AND
+		CourseId IN (SELECT CourseId FROM tbl_CourseEnrollment WHERE SSO = #{sso})
+	</select>
+	
+	<select id="getUpcomingAssessments" resultMap="upcomingAssessments">
+		SELECT CourseId,DATE_FORMAT(TopicDate, "%m/%d/%Y") as TopicDate ,TopicName FROM tbl_CoursePlan 
+		WHERE TopicDate BETWEEN curdate() AND  date_add(curdate(), interval 45 day) 
+		AND (TopicName LIKE 'Midterm' OR TopicName LIKE '%Exam%') 
+		AND CourseId IN (SELECT CourseId FROM tbl_CourseEnrollment WHERE SSO = #{sso})
+	</select>
+	
+	<select id="getEnrolledCourses" resultMap="enrolledCourses">
+		SELECT CourseId,CourseName,DATE_FORMAT(StartDate, "%m/%d/%Y") as StartDate , DATE_FORMAT(EndDate, "%m/%d/%Y") as EndDate ,Credits FROM tbl_Course WHERE 
+		CourseId IN (SELECT CourseId FROM tbl_CourseEnrollment WHERE SSO = #{sso});
+	</select>
+	
+	<select id="getCourseSchedule" resultMap="courseSchedule">
+		SELECT TopicDate,TopicName,Assignment,DATE_FORMAT(AssignmentDeadline, "%m/%d/%Y") as AssignmentDeadline  FROM tbl_CoursePlan WHERE CourseId = #{courseId} order by TopicDate;
+	</select>
+
+
+</mapper>

@@ -1,0 +1,5 @@
+<footer class="footer myFooter">
+	<div class="container">
+		<p class="text-muted" style="width: 100%;text-align: center;">© 2017 Copyright: Campus Network</p>
+	</div>
+</footer>

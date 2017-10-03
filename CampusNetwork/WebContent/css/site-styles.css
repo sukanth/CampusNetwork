@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+#mainContent{
+	padding-top: 5%;
+}
+
+.dataTable thead {
+	color: white;
+	background-color:#337ab7; 
+}
+
+table.dataTable tr.odd { background-color: #E2E4FF; }
+table.dataTable tr.even { background-color: white; }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- Mapper.java namespace -->
+<mapper namespace="com.campusnetwork.dao.LoginMapper">
+     
+    <select id="validateUser"  resultType="int">
+       Select count(1) StudentName from tbl_student where Email = #{email} and Passwd = #{password}
+    </select>
+    
+    <resultMap id="studentDetails" type="com.campusnetwork.models.Student">
+      <result property="sso" column="SSO"/>
+      <result property="studentName" column="StudentName"/>
+      <result property="gender" column="Gender"/>
+      <result property="degree" column="Degree"/>
+      <result property="email" column="Email"/>
+      <result property="contactNumber" column="ContactNumber"/>
+      <result property="dob" column="DOB"/>
+   </resultMap>
+   
+    <select id="getStudentDetails"  resultMap="studentDetails">
+       select SSO,StudentName,Gender,Degree,Email,ContactNumber,DOB from tbl_student where Email = #{email}
+    </select>
+    
+    <select id="validateInstructor"  resultType="int">
+       Select count(1) StudentName from tbl_instructor where Email = #{email} and Passwd = #{password}
+    </select>
+    
+    <resultMap id="instructorDetails" type="com.campusnetwork.models.Instructor">
+      <result property="instructorId" column="InstructorId"/>
+      <result property="instructorName" column="InstructorName"/>
+      <result property="gender" column="Gender"/>
+      <result property="email" column="Email"/>
+      <result property="contactNumber" column="ContactNumber"/>
+      <result property="dob" column="DOB"/>
+   </resultMap>
+   
+    <select id="getInstructorDetails"  resultMap="instructorDetails">
+       select InstructorId,InstructorName,Gender,Email,ContactNumber,DOB from tbl_instructor where Email = #{email}
+    </select>
+    
+    
+    
+    
+</mapper>

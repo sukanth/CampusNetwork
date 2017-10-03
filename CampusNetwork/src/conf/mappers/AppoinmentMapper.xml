@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper.java namespace -->
+<mapper namespace="com.campusnetwork.dao.AppointmentMapper">
+
+	
+	<resultMap id="Appoinments" type="com.campusnetwork.models.Appointment">
+		<result property="appointmentFromDate" column="AppointmentFromDate" />
+		<result property="appointmentToDate" column="AppointmentToDate" />
+		<result property="fromTime" column="FromTime" />
+		<result property="toTime" column="ToTime" />
+		<result property="appointmentDuration" column="AppointmentDuration" />
+		<result property="maxAppointments" column="MaxAppointments" />
+	</resultMap>
+	
+	<resultMap id="keyValue" type="com.campusnetwork.models.ModelValueBean">
+		<result property="key" column="text" />
+		<result property="value" column="value" />
+	</resultMap>
+	
+	<delete id="deleteAppoinment">
+		DELETE FROM 
+			tbl_SetAppointments 
+		WHERE 
+			InstructorId = #{instructorId} AND AppointmentFromDate = #{appointmentFromDate} 
+		AND 
+			AppointmentToDate = #{appointmentToDate} 
+		AND 
+			FromTime = #{fromTime} AND ToTime = #{toTime}
+	</delete>
+	
+	<select id="getAppoinments" resultMap="Appoinments">
+		SELECT DATE_FORMAT(AppointmentFromDate, "%m/%d/%Y") as AppointmentFromDate ,DATE_FORMAT(AppointmentToDate, "%m/%d/%Y") as AppointmentToDate,FromTime,ToTime,AppointmentDuration,MaxAppointments FROM tbl_SetAppointments WHERE InstructorId = #{instructorId} order by AppointmentFromDate;
+	</select> 
+	
+	<select id="setAppoinment" parameterType="com.campusnetwork.models.Appointment">
+		INSERT INTO 
+		tbl_SetAppointments (InstructorId,AppointmentFromDate,AppointmentToDate ,FromTime, ToTime,AppointmentDuration,MaxAppointments) 
+		VALUES (#{instructorId},#{appointmentFromDate},#{appointmentToDate},#{fromTime},#{toTime},#{appointmentDuration},#{maxAppointments});
+	</select> 
+	
+	<select id="getInstructors" resultMap="keyValue">
+		SELECT InstructorId as text, InstructorName as value FROM tbl_Instructor
+	</select> 
+	
+	<select id="getAppoinmentTime" resultMap="keyValue">
+		SELECT  FromTime  as text,ToTime as value FROM tbl_setappointments where InstructorId = #{instructorId} 
+		and AppointmentFromDate &lt;= #{appointmentDate}  and AppointmentToDate &gt;= #{appointmentDate} 
+	</select> 
+	
+	<insert id="requestAppoinment" parameterType="com.campusnetwork.models.Appointment">
+		INSERT INTO tbl_appointmentrequests
+		(SSO,
+		AppointmentDate,
+		InstructorName,
+		AppointmentTime,
+		AppointmentType,
+		Description,
+		AppointmentStatus)
+		VALUES
+		(#{sso},#{appointmentDate},#{instructorId},#{appointmentTime},#{appointmentType},#{desc},'Pending');
+	</insert>
+	
+	<select id="getRequestedAppoinments" resultType="com.campusnetwork.models.Appointment">
+		SELECT AppointmentId as appointmentId,
+		AppointmentDate as appointmentDate,
+		tbl_instructor.InstructorName as instructorName,
+		AppointmentTime as appointmentTime,
+		AppointmentType as appointmentType,
+		Description as 'desc',
+		AppointmentStatus as 'status'
+		FROM tbl_AppointmentRequests join tbl_instructor
+        on tbl_instructor.InstructorId = tbl_AppointmentRequests.InstructorName
+        WHERE SSO = #{sso}
+	</select>
+	
+	<delete id="deleteRequestedAppoinment">
+		DELETE FROM 
+			tbl_AppointmentRequests 
+		WHERE 
+			AppointmentId = #{appointmentId}
+	</delete>
+	
+	<select id="getAppoinmentRequests" resultType="com.campusnetwork.models.Appointment">
+		SELECT tbl_AppointmentRequests.AppointmentId as appointmentId,tbl_Student.StudentName as studentName,
+		tbl_AppointmentRequests.AppointmentDate as appointmentDate,
+		tbl_AppointmentRequests.AppointmentTime as appointmentTime,
+		tbl_AppointmentRequests.AppointmentType as appointmentType,
+		tbl_AppointmentRequests.Description as 'desc'
+		FROM tbl_AppointmentRequests INNER JOIN tbl_Student ON
+		tbl_AppointmentRequests.SSO = tbl_Student.SSO
+		AND tbl_AppointmentRequests.InstructorName = #{instructorId} AND
+		tbl_AppointmentRequests.AppointmentStatus = 'Pending'	
+	</select>
+	
+	<update id="updateRequestedAppointments">
+		UPDATE 	tbl_AppointmentRequests 
+		set AppointmentStatus = #{status}
+		WHERE 
+			AppointmentId = #{appointmentId}
+	</update>
+
+</mapper>
