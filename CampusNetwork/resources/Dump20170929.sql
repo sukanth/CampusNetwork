@@ -190,7 +190,7 @@ CREATE TABLE `tbl_instructor` (
 
 LOCK TABLES `tbl_instructor` WRITE;
 /*!40000 ALTER TABLE `tbl_instructor` DISABLE KEYS */;
-INSERT INTO `tbl_instructor` VALUES (111,'BaekYoungChoi','F','choiby@mail.umkc.edu',9999999999,'1983-07-30','choi'),(112,'Lee','F','lee@mail.umkc.edu',9999999999,'1983-07-30','lee');
+INSERT INTO `tbl_instructor` VALUES (111,'Sam','M','sam@mail.ucm.edu',9999999999,'1983-07-30','sam'),(112,'kamal','M','kamal@mail.ucm.edu',9999999999,'1983-07-30','kamal');
 /*!40000 ALTER TABLE `tbl_instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +250,7 @@ CREATE TABLE `tbl_student` (
 
 LOCK TABLES `tbl_student` WRITE;
 /*!40000 ALTER TABLE `tbl_student` DISABLE KEYS */;
-INSERT INTO `tbl_student` VALUES (12426434,'Sukanth Gunda','M','Masters','sgnw8@mail.umkc.edu',8166823758,'1993-07-30','Sukanth'),(16186322,'Mohammed Zubair','M','Masters','mmz@mail.umkc.edu',8166823463,'1991-10-23','Zubair');
+INSERT INTO `tbl_student` VALUES (12426434,'Sukanth Gunda','M','Masters','sgnw8@mail.ucm.edu',8166823758,'1993-07-30','Sukanth'),(16186322,'Mohammed Zubair','M','Masters','mmz@mail.ucm.edu',8166823463,'1991-10-23','Zubair');
 /*!40000 ALTER TABLE `tbl_student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
