@@ -25,7 +25,7 @@ $('.getApptTime').on('change',function(){
 		input['appointmentDate'] = $('#appointmentDate').val();
 		input['instructorId']   = $('#instructor').val();
 		$('#appointmentTime').empty();
-		if($(this).val() != '' && $('#appointmentDate').val() != '') {
+		if($('#instructor').val() != '' && $('#appointmentDate').val() != '') {
 			$.ajax({
 				  type : "GET",
 				  url: getContextRoot()+"/entry/Appointments/getAppointmentTime.htm",

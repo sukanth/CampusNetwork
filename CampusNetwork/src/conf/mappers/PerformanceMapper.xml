@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper.java namespace -->
+<mapper namespace="com.campusnetwork.dao.PerformanceMapper">
+
+<select id="getAvailableCourses" resultType="String">
+	SELECT CourseId FROM tbl_CourseAllotment WHERE InstructorId = #{instructorId}
+</select>
+
+<select id="getAssessement" resultType="String">
+	SELECT 
+	<choose>
+	<when test="courseType == 'assignments'">
+		Assignment
+	</when>
+	<otherwise>
+		TopicName
+	</otherwise>
+	</choose>
+	FROM tbl_CoursePlan WHERE CourseId = #{courseId}
+	<if test="courseType == 'lab'">
+		AND TopicName LIKE '%Lab%'
+	</if>
+	<if test="courseType == 'assignments'">
+		AND Assignment != ''
+	</if>
+	<if test="courseType == 'exam'">
+		AND (TopicName LIKE '%Exam%' OR TopicName = 'Midterm')
+	</if>
+</select>
+
+</mapper>
