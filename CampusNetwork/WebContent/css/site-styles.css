@@ -9,5 +9,11 @@
 	background-color:#337ab7; 
 }
 
+#chartdiv {
+	width		: 100%;
+	height		: 435px;
+	font-size	: 11px;
+}
+
 table.dataTable tr.odd { background-color: #E2E4FF; }
 table.dataTable tr.even { background-color: white; }

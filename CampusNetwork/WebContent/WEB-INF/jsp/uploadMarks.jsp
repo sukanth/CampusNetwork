@@ -22,7 +22,7 @@
 			<div>
 				<div class="form-group" style="margin-left: 200px;">
 					<label style="float:left;margin-right:5px;font-weight: bold;">Select Course :</label>
-					<select class="form-control dropdown-toggle getAssessement" id="courseId" name="ddlCourse" style="width:400px;margin-left:280px";>
+					<select class="form-control dropdown-toggle getAssessement" id="courseId" name="courseId" style="width:400px;margin-left:280px";>
 					 <option value = ''>--SELECT--</option>
 					 <c:forEach items="${availableCourses}" var="course">
 			         		<option value = '${course}'>${course}</option>

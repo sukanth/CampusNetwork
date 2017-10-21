@@ -15,6 +15,7 @@ public class Marks implements Serializable{
 	private int totalmarks;
 	private int marksObtained;
 	private int percentage;
+	private int position;
 	private String comments;
 	public String getCourseId() {
 		return courseId;
@@ -51,6 +52,12 @@ public class Marks implements Serializable{
 	}
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
+	}
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	public String getComments() {
 		return comments;

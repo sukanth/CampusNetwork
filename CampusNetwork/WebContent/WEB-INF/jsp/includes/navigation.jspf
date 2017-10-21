@@ -40,14 +40,14 @@
 						<span class="caret"></span></a>
 				<c:if test="${sessionScope.loginType == 'student'}">
 				<ul class="dropdown-menu" role="menu">
-						<li><a href="ViewPerformance.aspx">View Performance</a></li>
-						<li><a href="ComparePerformance.aspx">Compare Performance</a></li>
+						<li><a href="${pageContext.request.contextPath}/entry/Performance/viewPerformance.htm">View Performance</a></li>
+						<li><a href="${pageContext.request.contextPath}/entry/Performance/comparePerformance.htm">Compare Performance</a></li>
 				</ul>
 				</c:if>
 				<c:if test="${sessionScope.loginType == 'instructor'}">
 				<ul class="dropdown-menu" role="menu">
 						<li><a href="${pageContext.request.contextPath}/entry/Performance/uploadMarks.htm">Upload Marks</a></li>
-						<li><a href="${pageContext.request.contextPath}/entry/Appointments/applyAppointments.htm">Analyze Performance</a></li>
+						<li><a href="${pageContext.request.contextPath}/entry/Performance/analyzePerformance.htm">Analyze Performance</a></li>
 						</ul>
 				</c:if>
 				</li>

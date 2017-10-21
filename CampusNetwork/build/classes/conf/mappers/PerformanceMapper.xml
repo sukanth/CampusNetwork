@@ -5,7 +5,15 @@
 <mapper namespace="com.campusnetwork.dao.PerformanceMapper">
 
 <select id="getAvailableCourses" resultType="String">
-	SELECT CourseId FROM tbl_CourseAllotment WHERE InstructorId = #{instructorId}
+	SELECT DISTINCT CourseId  
+	<if test="instructorId != null and instructorId != 0 ">
+		FROM tbl_CourseAllotment WHERE InstructorId = #{instructorId}
+	</if>
+	<if test="sso != null and sso != 0 ">
+		FROM tbl_CourseEnrollment WHERE SSO = #{sso}
+	</if>
+	
+	
 </select>
 
 <select id="getAssessement" resultType="String">
@@ -28,6 +36,45 @@
 	<if test="courseType == 'exam'">
 		AND (TopicName LIKE '%Exam%' OR TopicName = 'Midterm')
 	</if>
+</select>
+
+<insert id="insertMarks">
+	INSERT INTO 
+		tbl_Performance(SSO,CourseId,TopicName,TotalMarks,MarksObtained,Percentage,Comments) 
+		VALUES(#{sso},#{courseId},#{topicName},#{totalmarks},#{marksObtained},#{percentage},#{comments})
+</insert>
+<select id="getPerformanceRange" resultType="com.campusnetwork.models.PerformanceRange">
+SELECT
+(SELECT COUNT(*) FROm tbl_Performance WHERE CourseId = #{courseId}  <if test="topicName != null and topicName != '' ">AND TopicName = #{topicName} </if> AND Percentage &gt; 90 AND Percentage &lt;=100) as range1,
+(SELECT COUNT(*) FROm tbl_Performance WHERE CourseId = #{courseId}  <if test="topicName != null and topicName != '' ">AND TopicName = #{topicName} </if> AND Percentage &gt; 80 AND Percentage &lt;=90) as range2,
+(SELECT COUNT(*) FROm tbl_Performance WHERE CourseId = #{courseId}  <if test="topicName != null and topicName != '' ">AND TopicName = #{topicName} </if> AND Percentage &gt; 70 AND Percentage &lt;=80)as range3,
+(SELECT COUNT(*) FROm tbl_Performance WHERE CourseId = #{courseId}  <if test="topicName != null and topicName != '' ">AND TopicName = #{topicName} </if> AND Percentage &gt; 60 AND Percentage &lt;=70) as range4,
+(SELECT COUNT(*) FROm tbl_Performance WHERE CourseId = #{courseId}  <if test="topicName != null and topicName != '' ">AND TopicName = #{topicName} </if> AND Percentage &lt;=60) as range5
+from 
+tbl_Performance limit 1
+</select>
+
+<select id="getCourseStrength" resultType="int">
+	SELECT COUNT(*) as strength FROM tbl_CourseEnrollment WHERE CourseId = #{courseId}
+</select>
+<select id="getIndividualPerformance" resultType="com.campusnetwork.models.Marks">
+	SELECT
+	CourseId as courseId,TopicName as topicName,TotalMarks as
+	totalmarks,MarksObtained as marksObtained,
+	Percentage as percentage,Comments as comments
+	FROM tbl_Performance WHERE CourseId = #{courseId} AND SSO = #{sso}
+</select>
+
+<select id="getStudents" resultType="com.campusnetwork.models.Student">
+	select Distinct s.sso as sso,s.StudentName as studentName from
+	tbl_courseenrollment ce join tbl_student s on s.sso=ce.sso where
+	CourseId = #{courseId} order by StudentName
+</select>
+
+<select id="getPosition" resultType="com.campusnetwork.models.Marks">
+	SELECT rank as position,Percentage as percentage
+  FROM (SELECT @rownum := @rownum + 1 AS rank,Percentage,SSO  FROM tbl_Performance 
+WHERE TopicName = #{topicName} AND CourseId=#{courseId} order by Percentage desc)t,(SELECT @rownum := 0) r WHERE SSO = #{sso};
 </select>
 
 </mapper>
