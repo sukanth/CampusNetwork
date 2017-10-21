@@ -16,6 +16,7 @@
 	<input type="hidden" id="contextRoot" value="${context}">
 	<jsp:include page="includes/navigation.jspf" />
 	<div id="mainContent" class="container">
+	<form id="uploadMarksForm" action="" enctype='multipart/form-data'>
 		<div id="uploadMarks-accordion">
 			<h3>Upload Marks</h3>
 			<div>
@@ -45,14 +46,15 @@
 				</div>
 				<div class="form-group" style="margin-left: 200px;">
 					<label style="float:left;margin-right:5px;font-weight: bold;">Browse For File :</label>
-					<input type="file" class="" style="width:400px;margin-left:280px";>
+					<input type="file" name="dataFile" class="" style="width:400px;margin-left:280px";>
 				</div>
 
-				<input type="button" ID="btnSubmit" value="Upload Marks"
+				<input type="button" ID="btnUpload" value="Upload Marks"
 					Class="btn btn-lg btn-primary btn-block"
 					style="width:400px;margin-left:300px;" />
 			</div>
 		</div>
+		</form>
 	</div>
 	<br />
 	<br />
