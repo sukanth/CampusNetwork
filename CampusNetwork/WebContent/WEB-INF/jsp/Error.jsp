@@ -6,18 +6,33 @@
 <head>
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CampusNetwork - Home</title>
+<title>CampusNetwork - Error</title>
 <jsp:include page="includes/commonIncludes.jspf" />
 <link rel="stylesheet" href="${context}/css/site-styles.css">
 <script src="${context}/js/site.js"></script>
-<script src="${context}/js/student-home.js"></script>
 </head>
 <body>
 	<input type="hidden" id="contextRoot" value="${context}">
 	<jsp:include page="includes/navigation.jspf" />
 	<div id="mainContent" class="container">
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 		<strong>${errMsg}</strong>
 	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<br />
 	<br />
 	<br />

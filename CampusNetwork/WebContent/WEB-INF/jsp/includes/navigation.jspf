@@ -35,6 +35,15 @@
 						</ul>
 				</c:if>
 				</li>
+				<c:if test="${sessionScope.loginType == 'instructor'}">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">Course Plan
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="${pageContext.request.contextPath}/entry/instructor/manageCoursePlan.htm">Manage Course Plan</a></li>
+						</ul>
+					</li>
+				</c:if>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-expanded="false">Performance
 						<span class="caret"></span></a>

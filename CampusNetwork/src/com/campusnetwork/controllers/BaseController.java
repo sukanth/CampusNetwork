@@ -10,10 +10,13 @@ import com.campusnetwork.models.AjaxResponse;
 
 public class BaseController {
 	
-public ModelAndView handleException(CNException ex){
+public ModelAndView handleException(Exception ex){
 	
 	ModelAndView view = new ModelAndView("Error");
-	view.addObject("errMsg", ex.getErrorModel().getMessage());
+	if(ex instanceof CNException)
+		view.addObject("errMsg", ((CNException) ex).getErrorModel().getMessage());
+	else
+		view.addObject("errMsg", "Error while performing the operation. Please Try again.");
 	return view;
 		
 }

@@ -14,4 +14,8 @@ public List<Course> getAssignedCourses(@Param("instructorId") int instructorId) 
 	
 public List<CoursePlan> getCourseSchedule(@Param("courseId") String courseId) throws CNException;
 
+public void insertCourseSchedule(CoursePlan coursePlan) throws CNException;
+
+public void updateCourseSchedule(CoursePlan coursePlan) throws CNException;
+
 }

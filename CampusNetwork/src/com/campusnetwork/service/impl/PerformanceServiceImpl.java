@@ -42,10 +42,13 @@ public class PerformanceServiceImpl implements PerformanceService{
 			Row row = sheet.getRow(i);
 			if(row != null) {
 				marks = readData(row,marks);
-				insertMarks(marks);
+				if(checkMarks(marks))
+					updateMarks(marks);
+				else
+					insertMarks(marks);
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public Marks readData(Row row, Marks marks) throws CNException {
@@ -104,5 +107,15 @@ public class PerformanceServiceImpl implements PerformanceService{
 	@Override
 	public Marks getPosition(Marks marks) throws CNException {
 		return performanceMapper.getPosition(marks);
+	}
+
+	@Override
+	public void updateMarks(Marks marks) throws CNException {
+		performanceMapper.updateMarks(marks);
+	}
+
+	@Override
+	public boolean checkMarks(Marks marks) throws CNException {
+		return performanceMapper.checkMarks(marks) > 0;
 	}
 }

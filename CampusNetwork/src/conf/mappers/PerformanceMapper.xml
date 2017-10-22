@@ -37,7 +37,14 @@
 		AND (TopicName LIKE '%Exam%' OR TopicName = 'Midterm')
 	</if>
 </select>
-
+<select id="checkMarks" resultType="int">
+	select count(1) as count from tbl_performance where TopicName = #{topicName} and CourseId = #{courseId} and sso = #{sso}
+</select>
+<update id="updateMarks">
+	UPDATE tbl_Performance
+	set TotalMarks = #{totalmarks},MarksObtained = #{marksObtained},Percentage = #{percentage},Comments = #{comments}
+	where TopicName = #{topicName} and CourseId = #{courseId} and sso = #{sso}
+</update>
 <insert id="insertMarks">
 	INSERT INTO 
 		tbl_Performance(SSO,CourseId,TopicName,TotalMarks,MarksObtained,Percentage,Comments) 

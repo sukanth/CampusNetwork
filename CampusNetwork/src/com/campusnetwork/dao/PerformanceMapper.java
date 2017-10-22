@@ -27,5 +27,9 @@ public interface PerformanceMapper {
 	
 	public Marks getPosition(Marks marks) throws CNException;
 	
+	public void updateMarks(Marks marks) throws CNException;
+	
+	public int checkMarks(Marks marks) throws CNException;
+	
 
 }

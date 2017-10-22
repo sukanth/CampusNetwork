@@ -7,12 +7,19 @@ public class CoursePlan extends Course {
 	 */
 	private static final long serialVersionUID = -3371831890200720889L;
 	
+	private int uniqueId;
 	private String topicDate;
 	private String topicName;
 	private String assignmentName;
 	private String assignmentDeadline;
 	
 	
+	public int getUniqueId() {
+		return uniqueId;
+	}
+	public void setUniqueId(int uniqueId) {
+		this.uniqueId = uniqueId;
+	}
 	public String getTopicDate() {
 		return topicDate;
 	}

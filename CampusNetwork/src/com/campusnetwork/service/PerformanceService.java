@@ -29,4 +29,8 @@ public interface PerformanceService {
 	
 	public Marks getPosition(Marks marks) throws CNException;
 	
+	public void updateMarks(Marks marks) throws CNException;
+	
+	public boolean checkMarks(Marks marks) throws CNException;
+	
 }
