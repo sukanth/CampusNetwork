@@ -14,6 +14,7 @@
 	</resultMap>
 
 	<resultMap id="courseSchedule" type="com.campusnetwork.models.CoursePlan">
+		<result property="uniqueId" column="UniqueId" />
 		<result property="topicName" column="TopicName" />
 		<result property="topicDate" column="TopicDate" />
 		<result property="assignmentName" column="Assignment" />
@@ -26,8 +27,21 @@
 	</select>
 	
 	<select id="getCourseSchedule" resultMap="courseSchedule">
-		SELECT TopicDate,TopicName,Assignment,DATE_FORMAT(AssignmentDeadline, "%m/%d/%Y") as AssignmentDeadline  FROM tbl_CoursePlan WHERE CourseId = #{courseId} order by TopicDate;
+		SELECT UniqueId,DATE_FORMAT(TopicDate, "%m/%d/%Y") as TopicDate,TopicName,Assignment,DATE_FORMAT(AssignmentDeadline, "%m/%d/%Y") as AssignmentDeadline  FROM tbl_CoursePlan WHERE CourseId = #{courseId} order by TopicDate;
 	</select> 
+	
+	<insert id="insertCourseSchedule">
+		INSERT INTO tbl_CoursePlan(CourseId,TopicDate,TopicName,Assignment,AssignmentDeadline) VALUES
+		(#{courseId},#{topicDate},#{topicName},#{assignmentName},#{assignmentDeadline})
+	</insert>
+	
+	<update id="updateCourseSchedule">
+		UPDATE tbl_CoursePlan 
+		SET TopicDate = #{topicDate},TopicName = #{topicName},Assignment = #{assignmentName},AssignmentDeadline = #{assignmentDeadline}
+		WHERE UniqueId = #{uniqueId}
+	</update>
+	
+	
 
 
 </mapper>
