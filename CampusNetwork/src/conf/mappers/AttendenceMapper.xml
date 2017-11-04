@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper.java namespace -->
+<mapper namespace="com.campusnetwork.dao.AttendanceMapper">
+
+<select id="getAvailableCourses" resultType="String">
+	SELECT DISTINCT CourseId  
+	<if test="instructorId != null and instructorId != 0 ">
+		FROM tbl_CourseAllotment WHERE InstructorId = #{instructorId}
+	</if>
+	<if test="sso != null and sso != 0 ">
+		FROM tbl_CourseEnrollment WHERE SSO = #{sso}
+	</if>
+</select>
+
+<insert id="insertNewAttendance">
+	INSERT INTO tbl_SetAttendance(CourseId,InstructorId,AttendanceDate,Latitude,Longitude,RandomCode,StartTime,EndTime) 
+	VALUES(#{courseId},#{instructorId},#{attendanceDate},#{latitude},#{longitude},#{randomCode},#{startTime},#{endTime})
+</insert>
+
+<select id="getAttendances" resultType="com.campusnetwork.models.Attendance">
+
+SELECT CourseId as courseId,DATE_FORMAT(AttendanceDate, "%m/%d/%Y") as attendanceDate,Latitude as latitude,Longitude as longitude,RandomCode as randomCode,
+StartTime as startTime,EndTime as endTime,Aid as attendanceId,isGenerated as isGenerated  FROM tbl_SetAttendance WHERE InstructorId = #{instructorId}
+
+</select>
+
+<delete id="deleteAttendance">
+		delete from tbl_SetAttendance where Aid = #{attendanceId}
+</delete>
+
+<delete id="deleteAppliedAttendance">
+		delete from tbl_attendance where CourseId = #{courseId} and AttendanceDate = #{attendanceDate}
+</delete>
+
+<select id="getAttendanceDetail" resultType="com.campusnetwork.models.Attendance">
+	SELECT Latitude as latitude,Longitude as longitude,RandomCode as randomCode,StartTime as startTime,EndTime as endTime
+	FROM tbl_SetAttendance WHERE CourseId = #{courseId} AND AttendanceDate = #{attendanceDate}
+</select>
+
+<insert id="markAttendance">
+	INSERT INTO tbl_Attendance(SSO,CourseId,AttendanceDate,AttendanceStatus) 
+	VALUES(#{sso},#{courseId},#{attendanceDate},'Present')
+</insert>
+
+<select id="isAttendanceMarked" resultType="int"> 
+	select count(1) as count from tbl_attendance where SSO = #{sso} and CourseId = #{courseId} and AttendanceDate = #{attendanceDate}
+</select>
+
+<select id="isAttendanceAvailable" resultType="int"> 
+	select count(1) as count from tbl_setattendance where CourseId = #{courseId} and AttendanceDate = #{attendanceDate}
+</select>
+
+<select id="getIndividualAttendance" resultType="com.campusnetwork.models.Attendance">
+	select CourseId as courseId,AttendanceDate as attendanceDate,AttendanceStatus as attendanceStatus from tbl_attendance where SSO = #{sso}
+</select>
+
+<insert id="generateAttendance">
+INSERT INTO tbl_Attendance(SSO,CourseId,AttendanceDate,AttendanceStatus) (SELECT SSO,CourseId,'${attendanceDate}','Absent' FROM tbl_CourseEnrollment WHERE CourseId = #{courseId}
+AND SSO NOT IN(SELECT SSO FROM tbl_Attendance WHERE CourseId=#{courseId} AND AttendanceDate = #{attendanceDate}))
+</insert>
+
+<update id="setGenerated">
+	update tbl_setattendance set isGenerated = 'Y' where CourseId = #{courseId}  and AttendanceDate = #{attendanceDate}
+</update>
+
+
+</mapper>
