@@ -19,6 +19,10 @@
 		<div id="student-appointments-accordion">
 			<h3>Request Appointments</h3>
 			<div>
+					<div class="errMsg alert alert-danger"
+						style="text-align: center;">
+						<a id="" href="#" class="close hideMsg">&times;</a><span class="errMsgSpan"></span>
+					</div>
 				<div class="form-group" style="margin-left: 200px;">
 					<label style="float:left;margin-right:5px;font-weight: bold;">Select Appointment Date :</label>
 					<input type="text" required class="form-control getApptTime" id="appointmentDate" name="appointmentDate" placeholder="Appointment Date" style="width:400px;margin-left:240px;">

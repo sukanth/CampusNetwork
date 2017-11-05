@@ -170,6 +170,11 @@ public class AppoinmentController extends BaseController{
 			appointment.setSso(student.getSso());
 			appointment.setAppointmentDate(DateUtils.formatDate(appointment.getAppointmentDate(),"mm/dd/yyyy", "yyyy-mm-dd"));
 			
+			if(appointmentService.checkIsProfessorAvailable(appointment)) {
+				responseData.put("errMsg", "Professor is Scheduled with Another Appoinment. Please Select another Time.");
+				return ajaxResponse;
+			}
+			
 			appointmentService.requestAppoinment(appointment);
 			responseData.put("status", "success");
 		}

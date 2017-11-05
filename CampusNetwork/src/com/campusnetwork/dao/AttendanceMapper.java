@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.campusnetwork.exception.CNException;
 import com.campusnetwork.models.Attendance;
+import com.campusnetwork.models.PerformanceRange;
 
 public interface AttendanceMapper {
 	
@@ -32,6 +33,14 @@ public interface AttendanceMapper {
 	public void generateAttendance(Attendance attendance) throws CNException;
 	
 	public void setGenerated(Attendance attendance) throws CNException;
+	
+	public List<String> getAttendanceDates(@Param("courseId") String courseId) throws CNException;
+	
+	public PerformanceRange getCourseAttendance(Attendance attendance) throws CNException;
+	
+	public List<Attendance> getIndividualIAttendance(Attendance attendance) throws CNException;
+	
+	public int getCourseStrength(Attendance attendance) throws CNException;
 	
 	
 }

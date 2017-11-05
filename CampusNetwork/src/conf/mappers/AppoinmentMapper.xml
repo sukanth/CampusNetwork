@@ -49,6 +49,10 @@
 		and AppointmentFromDate &lt;= #{appointmentDate}  and AppointmentToDate &gt;= #{appointmentDate} 
 	</select> 
 	
+	<select id="checkIsProfessorAvailable" resultType="int">
+		Select count(1) from tbl_appointmentrequests where AppointmentDate = #{appointmentDate} and InstructorName = #{instructorId} and AppointmentTime = #{appointmentTime};
+	</select>
+	
 	<insert id="requestAppoinment" parameterType="com.campusnetwork.models.Appointment">
 		INSERT INTO tbl_appointmentrequests
 		(SSO,

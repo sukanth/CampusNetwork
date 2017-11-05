@@ -71,7 +71,7 @@
 				<c:if test="${sessionScope.loginType == 'instructor'}">
 				<ul class="dropdown-menu" role="menu">
 						<li><a href="${pageContext.request.contextPath}/entry/Attendance/loadSetAttendance.htm">Set Attendance</a></li>
-						<li><a href="${pageContext.request.contextPath}/entry/Performance/analyzePerformance.htm">Analyze Attendance</a></li>
+						<li><a href="${pageContext.request.contextPath}/entry/Attendance/loadAnalyzeAttendance.htm">Analyze Attendance</a></li>
 						</ul>
 				</c:if>
 				</li>

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,6 +23,7 @@ import com.campusnetwork.exception.CNException;
 import com.campusnetwork.models.AjaxResponse;
 import com.campusnetwork.models.Attendance;
 import com.campusnetwork.models.Instructor;
+import com.campusnetwork.models.PerformanceRange;
 import com.campusnetwork.models.Student;
 import com.campusnetwork.service.AttendanceService;
 import com.campusnetwork.utils.DateUtils;
@@ -253,6 +255,82 @@ public class AttendanceController extends BaseController{
 		catch(CNException ex) {
 			ajaxResponse = handleAjaxException(ex);
 		} catch (ParseException ex) {
+			ajaxResponse = handleAjaxException(ex);
+		}
+		return ajaxResponse;
+	}
+	
+	@RequestMapping("/loadAnalyzeAttendance")
+	public ModelAndView loadAnalyzeAttendance(HttpServletRequest request){
+		ModelAndView view = new ModelAndView("analyzeAttendance");
+		
+		try {
+			HttpSession session = request.getSession();
+			Instructor instructor = (Instructor)session.getAttribute("instructor");
+		
+			List<String> availableCourses = attendanceService.getAvailableCourses(instructor.getInstructorId(),0);
+			view.addObject("availableCourses", availableCourses);
+		}
+		catch(CNException ex) {
+			view = handleException(ex);
+		}
+		return view;
+	}
+	
+	@RequestMapping(value = {"/getAttendanceDates"})
+	public 	@ResponseBody AjaxResponse getAttendanceDates(HttpServletRequest request,@RequestParam("courseId") String courseId){
+		
+		AjaxResponse ajaxResponse = new AjaxResponse();
+		Map<String, Object> responseData = new HashMap<String,Object>();
+		ajaxResponse.setResponseData(responseData);
+		
+		try {
+			
+			List<String> attendanceDates = attendanceService.getAttendanceDates(courseId);
+			responseData.put("attendanceDates", attendanceDates);
+		}
+		catch(CNException ex) {
+			ajaxResponse = handleAjaxException(ex);
+		}
+		return ajaxResponse;
+	}
+	
+	@RequestMapping(value = {"/getCourseAttendance"})
+	public 	@ResponseBody AjaxResponse getCourseAttendance(HttpServletRequest request,@ModelAttribute Attendance attendance){
+		
+		AjaxResponse ajaxResponse = new AjaxResponse();
+		Map<String, Object> responseData = new HashMap<String,Object>();
+		ajaxResponse.setResponseData(responseData);
+		
+		try {
+			attendance.setAttendanceDate(DateUtils.formatDate(attendance.getAttendanceDate(),"mm/dd/yyyy", "yyyy-mm-dd"));
+			PerformanceRange  range = attendanceService.getCourseAttendance(attendance);
+			responseData.put("range", range);
+			
+			int courseStrength = attendanceService.getCourseStrength(attendance);
+			responseData.put("courseStrength", courseStrength);
+		}
+		catch(CNException ex) {
+			ajaxResponse = handleAjaxException(ex);
+		} catch (ParseException ex) {
+			ajaxResponse = handleAjaxException(ex);
+		}
+		return ajaxResponse;
+	}
+	
+	@RequestMapping(value = {"/getIndividualIAttendance"})
+	public 	@ResponseBody AjaxResponse getIndividualIAttendance(HttpServletRequest request,@ModelAttribute Attendance attendance){
+		
+		AjaxResponse ajaxResponse = new AjaxResponse();
+		Map<String, Object> responseData = new HashMap<String,Object>();
+		ajaxResponse.setResponseData(responseData);
+		
+		try {
+			
+			List<Attendance> attendances = attendanceService.getIndividualIAttendance(attendance);
+			responseData.put("attendances", attendances);
+		}
+		catch(CNException ex) {
 			ajaxResponse = handleAjaxException(ex);
 		}
 		return ajaxResponse;

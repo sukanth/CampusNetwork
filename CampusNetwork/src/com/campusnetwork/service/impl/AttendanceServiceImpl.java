@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.campusnetwork.dao.AttendanceMapper;
 import com.campusnetwork.exception.CNException;
 import com.campusnetwork.models.Attendance;
+import com.campusnetwork.models.PerformanceRange;
 import com.campusnetwork.service.AttendanceService;
 
 @Service
@@ -90,6 +91,30 @@ public class AttendanceServiceImpl implements AttendanceService{
 	public void deleteAppliedAttendance(Attendance attendance) throws CNException {
 		attendanceMapper.deleteAppliedAttendance(attendance);
 		
+	}
+
+	@Override
+	public List<String> getAttendanceDates(String courseId) throws CNException {
+		
+		return attendanceMapper.getAttendanceDates(courseId);
+	}
+
+	@Override
+	public PerformanceRange getCourseAttendance(Attendance attendance) throws CNException {
+		
+		return attendanceMapper.getCourseAttendance(attendance);
+	}
+
+	@Override
+	public List<Attendance> getIndividualIAttendance(Attendance attendance) throws CNException {
+		
+		return attendanceMapper.getIndividualIAttendance(attendance);
+	}
+	
+	@Override
+	public int getCourseStrength(Attendance attendance) throws CNException {
+		
+		return attendanceMapper.getCourseStrength(attendance);
 	}
 	
 }

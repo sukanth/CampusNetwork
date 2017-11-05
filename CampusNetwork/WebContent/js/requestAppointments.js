@@ -7,6 +7,7 @@ $(function() {
 	$("#student-appointments-accordion").accordion({ 
 		heightStyle: "content",
 		beforeActivate: function(event, ui) {
+			$('.errMsg').hide();
 			if('Check Status' === ui.newHeader.text() ){
 				getAppointments();
 			}     
@@ -65,6 +66,7 @@ $('.getApptTime').on('change',function(){
 		input['appointmentTime'] = $('#appointmentTime').val();
 		input['appointmentType']   = $('#appointmentType').val();
 		input['desc'] = $('#description').val();
+		$('.errMsg').hide();
 		
 		$.ajax({
 			  type : "POST",
@@ -73,7 +75,7 @@ $('.getApptTime').on('change',function(){
 			  dataType: 'json',
 			  cache: false,
 			  success: function(data){
-				alert(data.responseData.status);
+				  loadResponse(data,"Appoinment Scheduled Successfully.");
 			  },
 			  error: function(data){
 				  

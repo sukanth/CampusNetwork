@@ -30,5 +30,7 @@ public List<Appointment> getAppoinmentRequests(@Param("instructorId") int instru
 
 public void updateRequestedAppointments(Appointment appointment) throws CNException;
 
+public int checkIsProfessorAvailable(Appointment appointment) throws CNException;
+
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.campusnetwork.exception.CNException;
 import com.campusnetwork.models.Attendance;
+import com.campusnetwork.models.PerformanceRange;
 
 public interface AttendanceService {
 	
@@ -30,6 +31,14 @@ public interface AttendanceService {
 	public void generateAttendance(Attendance attendance) throws CNException;
 	
 	public void deleteAppliedAttendance(Attendance attendance) throws CNException; 
+	
+	public List<String> getAttendanceDates(String courseId) throws CNException;
+	
+	public PerformanceRange getCourseAttendance(Attendance attendance) throws CNException;
+	
+	public List<Attendance> getIndividualIAttendance(Attendance attendance) throws CNException;
+	
+	public int getCourseStrength(Attendance attendance) throws CNException;
 	
 	
 	

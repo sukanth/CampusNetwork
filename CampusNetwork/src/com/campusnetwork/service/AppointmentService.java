@@ -27,5 +27,7 @@ public interface AppointmentService {
 	public List<Appointment> getAppoinmentRequests(int instructorId) throws CNException;
 	
 	public void updateRequestedAppointments(Appointment appointment) throws CNException;
+	
+	public boolean checkIsProfessorAvailable(Appointment appointment) throws CNException;
 
 }

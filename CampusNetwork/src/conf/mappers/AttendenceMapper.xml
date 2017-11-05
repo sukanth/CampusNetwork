@@ -65,5 +65,25 @@ AND SSO NOT IN(SELECT SSO FROM tbl_Attendance WHERE CourseId=#{courseId} AND Att
 	update tbl_setattendance set isGenerated = 'Y' where CourseId = #{courseId}  and AttendanceDate = #{attendanceDate}
 </update>
 
+<select id="getAttendanceDates" resultType="string">
+	select DATE_FORMAT(AttendanceDate, "%m/%d/%Y") as attendanceDate from tbl_setattendance where CourseId =#{courseId}
+</select>
+
+<select id="getCourseAttendance" resultType="com.campusnetwork.models.PerformanceRange">
+SELECT
+(select COUNT(1) from tbl_attendance WHERE CourseId = #{courseId} and AttendanceDate = #{attendanceDate} and AttendanceStatus = 'Present') as range1,
+(select COUNT(1) from tbl_attendance WHERE CourseId = #{courseId} and AttendanceDate = #{attendanceDate} and AttendanceStatus = 'Absent') as range2
+from 
+tbl_attendance limit 1
+</select>
+
+<select id="getCourseStrength" resultType="int">
+	SELECT COUNT(*) as strength FROM tbl_CourseEnrollment WHERE CourseId = #{courseId}
+</select>
+
+<select id="getIndividualIAttendance" resultType="com.campusnetwork.models.Attendance">
+	select DATE_FORMAT(AttendanceDate, "%m/%d/%Y") as attendanceDate,AttendanceStatus as attendanceStatus from tbl_attendance where CourseId = #{courseId} and SSO = #{sso}
+</select>
+
 
 </mapper>
