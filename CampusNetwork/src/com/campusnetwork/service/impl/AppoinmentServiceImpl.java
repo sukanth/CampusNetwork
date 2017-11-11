@@ -98,4 +98,11 @@ public class AppoinmentServiceImpl implements AppointmentService{
 		return appointmentMapper.checkIsProfessorAvailable(appointment) > 0;
 	}
 
+
+
+	@Override
+	public Appointment getAppoinmentDetails(Appointment appointment) throws CNException {
+		return appointmentMapper.getAppoinmentDetails(appointment);
+	}
+
 }

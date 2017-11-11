@@ -104,5 +104,11 @@
 		WHERE 
 			AppointmentId = #{appointmentId}
 	</update>
+	
+	<select id="getAppoinmentDetails" resultType="com.campusnetwork.models.Appointment">
+		SELECT APPOINTMENTTIME  AS appointmentTime,DATE_FORMAT(APPOINTMENTDATE, "%m/%d/%Y") as appointmentDate ,TBL_INSTRUCTOR.INSTRUCTORNAME as instructorName
+		FROM TBL_APPOINTMENTREQUESTS JOIN TBL_INSTRUCTOR ON TBL_APPOINTMENTREQUESTS.INSTRUCTORNAME = TBL_INSTRUCTOR.INSTRUCTORID 
+		WHERE APPOINTMENTID = #{appointmentId}
+	</select>
 
 </mapper>

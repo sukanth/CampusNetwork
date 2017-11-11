@@ -24,6 +24,7 @@ import com.campusnetwork.models.ModelValueBean;
 import com.campusnetwork.models.Student;
 import com.campusnetwork.service.AppointmentService;
 import com.campusnetwork.utils.DateUtils;
+import com.campusnetwork.utils.EmailConstants;
 
 @Controller
 @RequestMapping("/entry/Appointments")
@@ -31,6 +32,9 @@ public class AppoinmentController extends BaseController{
 	
 	@Autowired
 	AppointmentService appointmentService;
+	
+	@Autowired
+	SendMail sendMail;
 	
 	@RequestMapping("/manageAppoinments")
 	public ModelAndView loadManageAppoinments(){
@@ -161,6 +165,7 @@ public class AppoinmentController extends BaseController{
 		AjaxResponse ajaxResponse = new AjaxResponse();
 		Map<String, Object> responseData = new HashMap<String,Object>();
 		ajaxResponse.setResponseData(responseData);
+		String body = null;
 		
 		try {
 			
@@ -176,6 +181,15 @@ public class AppoinmentController extends BaseController{
 			}
 			
 			appointmentService.requestAppoinment(appointment);
+			
+			body = EmailConstants.NOTIFICATION_REQUEST;
+			
+			body = body.replace("#STUDENTNAME#", student.getStudentName());
+			body = body.replace("#DATE#", appointment.getAppointmentDate());
+			body = body.replace("#TIME#", appointment.getAppointmentTime());
+			
+			sendMail.doSendEmail("mzubair2310@gmail.com", "An Appoinment Request", body);
+			
 			responseData.put("status", "success");
 		}
 		catch (ParseException ex) {
@@ -255,7 +269,23 @@ public class AppoinmentController extends BaseController{
 		
 		try {
 			appointmentService.updateRequestedAppointments(appointment);
+			
+			Appointment appointment2 = appointmentService.getAppoinmentDetails(appointment);
+			String body = null;
+			
+			if("Approved".equalsIgnoreCase(appointment.getStatus())) {
+				body = EmailConstants.NOTIFICATION_APPROVED;
+			}else
+				body = EmailConstants.NOTIFICATION_REJECTED;
+			
+			body = body.replace("#Professor#", appointment2.getInstructorName());
+			body = body.replace("#DATE#", appointment2.getAppointmentDate());
+			body = body.replace("#TIME#", appointment2.getAppointmentTime());
+			
+			sendMail.doSendEmail("mzubair2310@gmail.com", "Your Appointment Status", body);
+			
 			responseData.put("status", "success");
+			
 		}
 		catch(CNException ex) {
 			ajaxResponse = handleAjaxException(ex);

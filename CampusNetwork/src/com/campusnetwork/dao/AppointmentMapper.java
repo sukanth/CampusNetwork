@@ -32,5 +32,6 @@ public void updateRequestedAppointments(Appointment appointment) throws CNExcept
 
 public int checkIsProfessorAvailable(Appointment appointment) throws CNException;
 
+public Appointment getAppoinmentDetails(Appointment appointment) throws CNException;
 
 }
