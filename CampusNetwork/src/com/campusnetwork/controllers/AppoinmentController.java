@@ -188,7 +188,7 @@ public class AppoinmentController extends BaseController{
 			body = body.replace("#DATE#", appointment.getAppointmentDate());
 			body = body.replace("#TIME#", appointment.getAppointmentTime());
 			
-			sendMail.doSendEmail("mzubair2310@gmail.com", "An Appoinment Request", body);
+			sendMail.doSendEmail("contact.sukanth@gmail.com", "An Appoinment Request", body);
 			
 			responseData.put("status", "success");
 		}
@@ -282,7 +282,7 @@ public class AppoinmentController extends BaseController{
 			body = body.replace("#DATE#", appointment2.getAppointmentDate());
 			body = body.replace("#TIME#", appointment2.getAppointmentTime());
 			
-			sendMail.doSendEmail("mzubair2310@gmail.com", "Your Appointment Status", body);
+			sendMail.doSendEmail("contact.sukanth@gmail.com", "Your Appointment Status", body);
 			
 			responseData.put("status", "success");
 			
