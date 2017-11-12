@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="com.campusnetwork.service.InstructorService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/InstructorService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1065" y="541"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="com.campusnetwork.controllers.LoginController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/LoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3141" y="39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.campusnetwork.controllers.BaseController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/BaseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1739" y="-43"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" language="java" name="com.campusnetwork.service.AttendanceService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/AttendanceService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2626" y="684"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="com.campusnetwork.service.impl.AppoinmentServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/AppoinmentServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="566" y="1043"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.campusnetwork.controllers.PerformanceController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/PerformanceController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1657" y="351"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.campusnetwork.controllers.StudentController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/StudentController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2048" y="280"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="com.campusnetwork.service.LoginService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3134" y="234"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="9" language="java" name="com.campusnetwork.dao.PerformanceMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/PerformanceMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1463" y="1358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="com.campusnetwork.service.impl.InstructorServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/InstructorServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1067" y="754"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.campusnetwork.service.impl.AttendanceServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/AttendanceServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2651" y="1093"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.campusnetwork.service.impl.PerformanceServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/PerformanceServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1465" y="1041"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="13" language="java" name="com.campusnetwork.dao.InstructorMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/InstructorMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1071" y="977"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="14" language="java" name="com.campusnetwork.dao.AttendanceMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/AttendanceMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2660" y="1509"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="15" language="java" name="com.campusnetwork.controllers.AttendanceController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/AttendanceController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2610" y="283"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.campusnetwork.service.impl.LoginServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/LoginServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3148" y="449"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="com.campusnetwork.dao.StudentMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/StudentMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2063" y="806"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.campusnetwork.controllers.InstructorController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/InstructorController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1231" y="331"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="com.campusnetwork.dao.AppointmentMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/AppointmentMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="524" y="1425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="20" language="java" name="com.campusnetwork.service.PerformanceService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/PerformanceService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1472" y="713"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="21" language="java" name="com.campusnetwork.service.impl.StudentServiceImpl" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/impl/StudentServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2052" y="623"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.campusnetwork.controllers.AppoinmentController" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/controllers/AppoinmentController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="672" y="340"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="23" language="java" name="com.campusnetwork.service.StudentService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/StudentService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2049" y="439"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="24" language="java" name="com.campusnetwork.dao.LoginMapper" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/dao/LoginMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3165" y="673"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="25" language="java" name="com.campusnetwork.service.AppointmentService" project="CampusNetwork" 
+    file="/CampusNetwork/src/com/campusnetwork/service/AppointmentService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="577" y="720"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <association id="26">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="27" name="performanceService"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="30" name="instructorMapper"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="33" name="performanceMapper"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="36" name="attendanceMapper"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="39" name="loginMapper"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="42" name="loginService"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="45" name="studentService"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="47">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <realization id="49">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="51">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="52" name="attendanceService"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="55" name="performanceService"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="57">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="60">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="61" name="instructorService"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="64" name="appointmentService"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="66">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="67">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="68" name="appointmentMapper"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="71">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="72">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="73" name="studentMapper"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="75">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="23"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
