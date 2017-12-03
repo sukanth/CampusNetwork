@@ -33,4 +33,8 @@ public interface PerformanceService {
 	
 	public boolean checkMarks(Marks marks) throws CNException;
 	
+	public List<Marks> getStudentsMarks (Marks marks) throws CNException;
+	
+	public boolean deleteExistingMarks (Marks marks) throws CNException;
+	
 }

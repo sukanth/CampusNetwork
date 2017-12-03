@@ -37,6 +37,23 @@
 		AND (TopicName LIKE '%Exam%' OR TopicName = 'Midterm')
 	</if>
 </select>
+<select id="getStudentsMarks" resultType="com.campusnetwork.models.Marks">
+SELECT 
+	tp.sso as sso,StudentName as studentName,TotalMarks as totalmarks,MarksObtained as marksObtained,Percentage as percentage,Comments as comments 
+FROM 
+	tbl_performance tp join tbl_student ts on tp.SSO = ts.SSO 
+WHERE 
+	TopicName = #{topicName} and CourseId = #{courseId}
+UNION
+SELECT
+	ts.sso as sso,StudentName as studentName,'0' as totalmarks,'0' as marksObtained,'0' as percentage,'' as comments 
+FROM 
+	tbl_student ts join tbl_courseenrollment tc on tc.SSO = ts.SSO 
+WHERE CourseId = #{courseId} and ts.sso NOT IN 
+	(SELECT tp.sso from tbl_performance tp join tbl_student ts on tp.SSO = ts.SSO where TopicName = #{topicName} and CourseId = #{courseId})
+ORDER BY StudentName
+</select>
+
 <select id="checkMarks" resultType="int">
 	select count(1) as count from tbl_performance where TopicName = #{topicName} and CourseId = #{courseId} and sso = #{sso}
 </select>
@@ -45,6 +62,9 @@
 	set TotalMarks = #{totalmarks},MarksObtained = #{marksObtained},Percentage = #{percentage},Comments = #{comments}
 	where TopicName = #{topicName} and CourseId = #{courseId} and sso = #{sso}
 </update>
+<delete id="deleteExistingMarks">
+DELETE from tbl_performance where TopicName = #{topicName} and CourseId = #{courseId}
+</delete>
 <insert id="insertMarks">
 	INSERT INTO 
 		tbl_Performance(SSO,CourseId,TopicName,TotalMarks,MarksObtained,Percentage,Comments) 

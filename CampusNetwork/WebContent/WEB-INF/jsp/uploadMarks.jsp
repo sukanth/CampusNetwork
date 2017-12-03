@@ -17,6 +17,8 @@
 	<jsp:include page="includes/navigation.jspf" />
 	<div id="mainContent" class="container">
 	<form id="uploadMarksForm" action="" enctype='multipart/form-data'>
+	<input type="hidden" id="hCourseId">
+	<input type="hidden" id="hTopicName">
 		<div id="uploadMarks-accordion">
 			<h3>Upload Marks</h3>
 			<div>
@@ -44,14 +46,34 @@
 						 <option value = ''>--SELECT--</option>
 		            </select>
 				</div>
-				<div class="form-group" style="margin-left: 200px;">
-					<label style="float:left;margin-right:5px;font-weight: bold;">Browse For File :</label>
-					<input type="file" name="dataFile" class="" style="width:400px;margin-left:280px";>
-				</div>
-
+				<input type="button" ID="getMarks" value="Get Marks"
+					Class="btn btn-lg btn-primary btn-block"
+					style="width:400px;margin-left:300px;" />
+						<br />
+						<div id="divMarks">
+						<div class="form-group" style="margin-left: 165px;">
+						<label style="float: left; margin-right: 5px; font-weight: bold;padding-top: 5px">TotalMarks
+							:</label> <input type="number" required class="form-control" id="totalMarks"
+							name="totalMarks" placeholder="Total Marks" min ="0"
+							style="width: 120px; margin-left: 140px;">
+					</div>
+						<table id="uploadMarks" cellspacing="">
+							<thead>
+								<tr>
+									<th>SSO</th>
+									<th>Student Name</th>
+									<th>TotalMarks</th>
+									<th>MarksObtained</th>
+									<th>Percentage</th>
+									<th>Comments</th>
+								</tr>
+							</thead>
+						</table>
+					<br/>
 				<input type="button" ID="btnUpload" value="Upload Marks"
 					Class="btn btn-lg btn-primary btn-block"
 					style="width:400px;margin-left:300px;" />
+					</div>
 			</div>
 		</div>
 		</form>

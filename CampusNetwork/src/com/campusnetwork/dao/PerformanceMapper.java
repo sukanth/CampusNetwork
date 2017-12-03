@@ -31,5 +31,9 @@ public interface PerformanceMapper {
 	
 	public int checkMarks(Marks marks) throws CNException;
 	
+	public List<Marks> getStudentsMarks (Marks marks) throws CNException;
+	
+	public int deleteExistingMarks (Marks marks) throws CNException;
+	
 
 }

@@ -118,4 +118,14 @@ public class PerformanceServiceImpl implements PerformanceService{
 	public boolean checkMarks(Marks marks) throws CNException {
 		return performanceMapper.checkMarks(marks) > 0;
 	}
+
+	@Override
+	public List<Marks> getStudentsMarks(Marks marks) throws CNException {
+		return performanceMapper.getStudentsMarks(marks);
+	}
+
+	@Override
+	public boolean deleteExistingMarks(Marks marks) throws CNException {
+		return performanceMapper.deleteExistingMarks(marks) > 0;
+	}
 }

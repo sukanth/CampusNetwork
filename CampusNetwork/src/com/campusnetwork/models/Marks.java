@@ -11,6 +11,7 @@ public class Marks implements Serializable{
 	
 	private String courseId;
 	private String sso;
+	public String studentName;
 	private String topicName;
 	private int totalmarks;
 	private int marksObtained;
@@ -64,5 +65,11 @@ public class Marks implements Serializable{
 	}
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 }
